@@ -73,6 +73,7 @@ AC_CHECK_FUNC(connect)
 if test $ac_cv_func_connect = no; then
     AC_CHECK_LIB(socket, connect)
 fi
+AC_CHECK_FUNC([getrandom], AC_DEFINE([HAVE_GETRANDOM], [1], [Define this if you have getrandom()]))
 
 AH_TOP([
 #ifndef CONFIG_H
@@ -91,7 +92,7 @@ AH_BOTTOM([
 ])
 
 dnl Checks for header files.
-AC_CHECK_HEADERS([unistd.h sys/file.h stdlib.h sys/select.h])
+AC_CHECK_HEADERS([unistd.h sys/file.h stdlib.h sys/random.h sys/select.h])
 
 AC_CONFIG_FILES([Makefile
                  doc/Makefile
