@@ -1528,6 +1528,10 @@ void print_netdata(void)
             }
         }
 
+       /* disabling this until display issue is fixed, see:
+        * https://github.com/netdata/netdata/issues/8148
+        * https://github.com/schweikert/fping/pull/172
+        
         if (!sent_charts) {
             printf("CHART fping.%s_packets '' 'FPing Packets for host %s' packets '%s' fping.packets line 110020 %d\n", h->name, h->host, h->name, report_interval / 100000);
             printf("DIMENSION xmt sent absolute 1 1\n");
@@ -1538,6 +1542,7 @@ void print_netdata(void)
         printf("SET xmt = %d\n", h->num_sent_i);
         printf("SET rcv = %d\n", h->num_recv_i);
         printf("END\n");
+        */
 
         if (!sent_charts) {
             printf("CHART fping.%s_quality '' 'FPing Quality for host %s' percentage '%s' fping.quality area 110010 %d\n", h->name, h->host, h->name, report_interval / 100000);
